@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: 'circular-web';
+    src: url('/fonts/circularweb-book.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'general';
+    src: url('/fonts/general.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'robert-medium';
+    src: url('/fonts/robert-medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'robert-regular';
+    src: url('/fonts/robert-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'zentry-regular';
+    src: url('/fonts/zentry-regular.woff2') format('woff2');
+  }
+}
+
+@theme{
+  --font-zentry:"zentry", "sanf-serif";
+  --font-general:"general", "sanf-serif";
+  --font-circular-web:"circular-web", "sanf-serif";
+  --font-robert-regular:"robert-regular", "sanf-serif";
+  --font-robert-medium:"robert-medium", "sanf-serif";
+  --color-blue-50: #DFDFF0;
+  --color-blue-75: #DFDFF2;
+  --color-blue-100: #F0F2FA;
+  --color-blue-200: #010101;
+  --color-blue-300: #4FB7DD;
+  --color-violet-300: #5724FF;
+  --color-yellow-100: #8E983F;
+  --color-yellow-100: #EDFF66;
+}
+
+body{
+  font-family: 'General Sans', sans-serif;
+  width: 100dvw;
+  background-color: #dfdff0;
+  overflow-x: hidden;
+}

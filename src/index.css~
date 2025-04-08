@@ -77,7 +77,7 @@ body{
   } 
 
   .hero-heading {
-    @apply uppercase  font-bold text-5xl sm:right-10 sm:text-7xl md:text-9xl ;
+    @apply uppercase  font-bold  sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
   }
 
   .about-subtext {

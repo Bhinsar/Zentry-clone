@@ -14,7 +14,7 @@ export default function Hero() {
   const [loading, setLoading] = useState(true);
   const [loadedVideo, setLoadedVideo] = useState(0);
 
-  const totalVideos = 3; // Total number of videos
+  const totalVideos = 4; // Total number of videos
 
   const nextVdRef = useRef(null);
 

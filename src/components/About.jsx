@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import React from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import AnimatedText from "./AnimatedText.jsx";
 gsap.registerPlugin(ScrollTrigger)
 
 export default function About() {
@@ -28,10 +29,8 @@ export default function About() {
         <h2 className="font-general text-sm uppercase md:text-[10px]">
           welcome to zentry
         </h2>
-        <div className="mt-5 text-center text-4xl uppercase leading-[0.8] md:text-6rem">
-          Disc<b>o</b>ver the world
-          <br /> l<b>a</b>rgest shared adventure
-        </div>
+          <AnimatedText title={'Disc<b>o</b>ver the world<br/> l<b>a</b>rgest shared adventure'} conainerClass={'mt-5 !text-black text-center'}/>
+
         <div className="about-subtext">
           <p>The Metagame begins-your life, now an epic MMORPG</p>
           <p className='text-gray-500'>Zentry is the unified play layer driving attention and contribution through cross-world AI gamification</p>

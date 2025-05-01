@@ -33,7 +33,7 @@ export default function About() {
 
         <div className="about-subtext">
           <p>The Metagame begins-your life, now an epic MMORPG</p>
-          <p className='text-gray-500'>Zentry is the unified play layer driving attention and contribution through cross-world AI gamification</p>
+          <p className='text-gray-500'>Zentry is the unified play layer driving attention and contribution Through cross-world AI gamification</p>
         </div>
       </div>
       <div className="h-dvh w-screen" id="clip">

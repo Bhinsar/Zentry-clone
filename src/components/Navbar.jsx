@@ -51,12 +51,7 @@ const Navbar = () => {
       opacity: isNavbarVisible ? 1 : 0,
       duration: 0.1,
     });
-  }, [isNavbarVisible]);
-
-  useEffect(() => {
-    console.log(isNavbarVisible)
-  },[isNavbarVisible])
-  
+  }, [isNavbarVisible]);  
 
   return (
     <div

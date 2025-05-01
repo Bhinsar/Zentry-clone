@@ -7,6 +7,8 @@ import { useWindowScroll } from "react-use";
 const NavItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
 const Navbar = () => {
+  const navAudioRef = useRef(null);
+
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [active, setActive] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -26,24 +28,22 @@ const Navbar = () => {
     setIsAudioPlaying((prev) => !prev);
     setActive((prev) => !prev);
   };
-  
 
-  const {y: currentY} = useWindowScroll();
+  const { y: currentY } = useWindowScroll();
 
-  useEffect(()=>{
-    if(currentY === 0){
+  useEffect(() => {
+    if (currentY === 0) {
       setIsNavbarVisible(true);
       NavContainerRef.current.classList.remove("floating-nav");
-    }else if(currentY > lastScrollY){
+    } else if (currentY > lastScrollY) {
       setIsNavbarVisible(false);
       NavContainerRef.current.classList.add("floating-nav");
-    }else if(currentY < lastScrollY){
+    } else if (currentY < lastScrollY) {
       setIsNavbarVisible(true);
       NavContainerRef.current.classList.add("floating-nav");
     }
     setLastScrollY(currentY);
-  },[currentY, lastScrollY])
-
+  }, [currentY, lastScrollY]);
 
   useEffect(() => {
     gsap.to(NavContainerRef.current, {
@@ -51,7 +51,28 @@ const Navbar = () => {
       opacity: isNavbarVisible ? 1 : 0,
       duration: 0.1,
     });
-  }, [isNavbarVisible]);  
+  }, [isNavbarVisible]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audioRef.current?.pause();
+      } else {
+        if (isAudioPlaying) {
+          audioRef.current?.play().catch(() => {});
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isAudioPlaying]);
+
+  const handleMouseEnter = () => {
+    navAudioRef.current.play();
+  };
 
   return (
     <div
@@ -74,9 +95,18 @@ const Navbar = () => {
             />
           </div>
           <div className={"flex h-full items-center"}>
+            <audio
+              ref={navAudioRef}
+              src={"/audio/navClick.mp3"}
+              className="hidden"
+            />
             <div className={"hidden md:block"}>
               {NavItems.map((items, index) => (
-                <a key={index} className={"nav-hover-btn"}>
+                <a
+                  key={index}
+                  className={"nav-hover-btn"}
+                  onMouseEnter={handleMouseEnter}
+                >
                   {items}
                 </a>
               ))}
@@ -90,6 +120,7 @@ const Navbar = () => {
                 src={"/audio/loop.mp3"}
                 className="hidden"
                 loop
+                preload="auto"
               />
               {[1, 2, 3, 4].map((item, index) => (
                 <div

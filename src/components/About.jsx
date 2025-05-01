@@ -40,7 +40,7 @@ export default function About() {
         <div className="mask-clip-path about-image">
             <img
             src="img/about.webp"
-            className="absolute left-0 size-full object-cover"
+            className="absolute left-0 size-full object-cover object-top"
             />
         </div>
       </div>

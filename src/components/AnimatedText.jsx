@@ -26,7 +26,7 @@ function AnimatedText(props) {
     }, []);
 
     return (
-        <div ref={containerRef} className={`animated-title ${props.conainerClass}`}>
+        <div ref={containerRef} className={`animated-title ${props.containerClass}`}>
             {props.title.split('<br/>').map((line, index) => (
                 <div key={index} className={'flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3'}>
                     {line.split(' ').map((word, wordIndex) => (

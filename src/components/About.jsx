@@ -29,7 +29,7 @@ export default function About() {
         <h2 className="font-general text-sm uppercase md:text-[10px]">
           welcome to zentry
         </h2>
-          <AnimatedText title={'Disc<b>o</b>ver the world<br/> l<b>a</b>rgest shared adventure'} conainerClass={'mt-5 !text-black text-center'}/>
+          <AnimatedText title={'Disc<b>o</b>ver the world<br/> l<b>a</b>rgest shared adventure'} containerClass={'mt-5 !text-black text-center'}/>
 
         <div className="about-subtext">
           <p>The Metagame begins-your life, now an epic MMORPG</p>
